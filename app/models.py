@@ -15,7 +15,8 @@ class project(models.Model):
     project_img = models.CharField(max_length =30)
     description = models.CharField(max_length =30)
     link = models.CharField(max_length =30)
-    editor = models.ForeignKey(profile)
+    # editor = models.ForeignKey(profile)
+
 
 
     def __str__(self):
