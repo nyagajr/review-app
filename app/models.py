@@ -12,6 +12,11 @@ class profile(models.Model):
     def save_profile(self):
         self.save()
 
+    # def delete_profile(self):
+    #     self.delete()
+
+
+
 class project(models.Model):
     title = models.CharField(max_length =30)
     project_img = models.CharField(max_length =30)
@@ -19,7 +24,11 @@ class project(models.Model):
     link = models.CharField(max_length =30)
     editor = models.ForeignKey(profile, default = 0)
 
-
-
     def __str__(self):
         return self.title
+
+    def save_project(self):
+        self.save()
+
+    # def delete_project(self):
+    #     self.delete()
