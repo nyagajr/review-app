@@ -8,5 +8,6 @@ class project(models.Model):
     link = models.CharField(max_length =30)
 class profile(models.Model):
     name = models.CharField(max_length =30)
+    u_name = models.CharField(max_length =30)
     dpic = models.CharField(max_length =30)
     contact_info = models.CharField(max_length =30)
