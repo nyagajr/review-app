@@ -17,6 +17,10 @@ class ProfileTestClass(TestCase):
         editors = profile.objects.all()
         self.assertTrue(len(editors) > 0)
 
+    # def test_delete_method(self):
+    #     self.junior.delete_profile()
+    #     editors = profile.objects.all()
+    #     self.assertTrue(len(editors) = 1)
 
 class ProjectTestClass(TestCase):
     def setUp(self):
