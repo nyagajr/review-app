@@ -9,13 +9,15 @@ class profile(models.Model):
     def __str__(self):
         return self.u_name
 
+    def save_profile(self):
+        self.save()
 
 class project(models.Model):
     title = models.CharField(max_length =30)
     project_img = models.CharField(max_length =30)
     description = models.CharField(max_length =30)
     link = models.CharField(max_length =30)
-    # editor = models.ForeignKey(profile)
+    editor = models.ForeignKey(profile, default = 0)
 
 
 
