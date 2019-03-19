@@ -1,27 +1,12 @@
 {%extends 'all-templates/base.html'%}
+{{block.super}}
 {% block content %}
-{{ block.super}}
-
-<div class="container">
-
-  <!-- Looping through news   -->
+<div>
   {% for new_item in new %}
+  <p>{{new_item.title}}</p>
 
-  <div class="row">
-    <!-- displaying News articles -->
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      <h2 class="text-center"> {{ new_item.title }} </h2>
-      <img src="{{ new_item.project_img.url }}" alt="img">
-    </div>
-
-  </div>
-
-  {% empty %}
-  <div class="row">
-    <h2 class="text-center">nothing</h2>
-  </div>
+  <img src="{{new_item.project_img.url}}" alt="jpg" width="300" height="300" />
+  <p>{{new_item.description}}</p>
   {% endfor %}
-
 </div>
-
 {% endblock %}
