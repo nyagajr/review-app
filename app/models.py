@@ -20,7 +20,7 @@ class profile(models.Model):
 class project(models.Model):
     title = models.CharField(max_length =30)
     project_img = models.ImageField(upload_to = 'articles/')
-    description = models.CharField(max_length =30)
+    description = models.CharField(max_length =300)
     link = models.CharField(max_length =30)
     editor = models.ForeignKey(profile)
 
