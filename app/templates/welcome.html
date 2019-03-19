@@ -1,12 +1,22 @@
 {%extends 'all-templates/base.html'%}
 {{block.super}}
 {% block content %}
+{% for new_item in new %}
 <div>
-  {% for new_item in new %}
-  <p>{{new_item.title}}</p>
 
-  <img src="{{new_item.project_img.url}}" alt="jpg" width="300" height="300" />
-  <p>{{new_item.description}}</p>
+  <div class='row'>
+  <div class='col-md-4'>
+    </div>
+    <div class='col-md-4'>
+<div id = 'pan' class="panel panel-default">
+<div class="panel-heading">{{new_item.title}}</div>
+<form class="" action="" method="post">
+  <div class="panel-body"><img src="{{new_item.project_img.url}}" alt="jpg" width="350" height="300" /></div>
+  <div class="panel-footer"><br>{{new_item.description}}</div>
+</form>
+
+
+
   {% endfor %}
 </div>
 {% endblock %}
