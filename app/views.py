@@ -1,12 +1,16 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render,redirect
 from .models import *
 
+@login_required(login_url='/accounts/login/')
 
 # Create your views here.
 def welcome(request):
     new = project.objects.all()
-    
     return render(request, 'welcome.html',locals())
+
+def signup(request):
+    return render(request, 'signup.html')
 
 # def search_results(request):
 #
