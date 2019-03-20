@@ -23,7 +23,7 @@
         </div>
         <div class="panel-body">
 
-          <form  action="/accounts/register/" method="post">
+          <form  action="/accounts/login/" method="post">
             {% csrf_token %}
             {% bootstrap_form form%}
 
@@ -33,7 +33,9 @@
 
             <input type="hidden" name="next" value="{{next}}">
 
-
+            <a href="/accounts/register">
+              <p>sign up here</p>
+            </a>
 
           </form>
 
