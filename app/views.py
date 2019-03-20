@@ -10,8 +10,8 @@ def welcome(request):
     return render(request, 'welcome.html',locals())
 
 def signup(request):
-    return render(request, 'signup.html')
-
+    return redirect('/accounts/login/')
+    return render(request, 'registration_form.html')
 # def search_results(request):
 #
 #     if 'article' in request.GET and request.GET["article"]:
