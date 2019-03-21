@@ -15,18 +15,22 @@ def welcome(request):
 def signup(request):
     return redirect('/accounts/login/')
     return render(request, 'registration_form.html')
-# def search_results(request):
-#
-#     if 'article' in request.GET and request.GET["article"]:
-#         search_term = request.GET.get("article")
-#         searched_articles = Article.search_by_title(search_term)
-#         message = f"{search_term}"
-#
-#         return render(request, 'all-templates/search.html',{"message":message,"articles": searched_articles})
-#
-#     else:
-#         message = "You haven't searched for any term"
-#         return render(request, 'all-templates/search.html',{"message":message})
+
+# search form
+def search_results(request):
+
+    if 'article' in request.GET and request.GET["article"]:
+        search_term = request.GET.get("article")
+        searched_articles = Article.search_by_title(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'all-templates/search.html',{"message":message,"articles": searched_articles})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'all-templates/search.html',{"message":message})
+
+# the profile
 def profile(request):
     if request.method == 'POST':
         form = UploadForm(request.POST,request.FILES)
