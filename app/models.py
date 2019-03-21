@@ -22,7 +22,7 @@ class Profile(models.Model):
 
 
 
-class project(models.Model):
+class Project(models.Model):
     title = models.CharField(max_length =30)
     project_img = models.ImageField(upload_to = 'articles/')
     description = models.CharField(max_length =300)
@@ -37,7 +37,7 @@ class project(models.Model):
 
     @classmethod
     def search_by_title(cls,search_term):
-        app = cls.objects.filter(title__icontains=search_term)
+        app = Project.objects.filter(title__icontains=search_term)
         return app
 
     # def delete_project(self):
