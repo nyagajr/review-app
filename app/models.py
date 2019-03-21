@@ -17,8 +17,8 @@ class Profile(models.Model):
     def save_profile(self):
         self.save()
 
-    # def delete_profile(self):
-    #     self.delete()
+    def delete_profile(self):
+        self.delete()
 
 
 
@@ -26,7 +26,7 @@ class Project(models.Model):
     title = models.CharField(max_length =30)
     project_img = models.ImageField(upload_to = 'articles/')
     description = models.CharField(max_length =300)
-    link = models.URLField(max_length =30)
+    link = models.CharField(max_length =100)
     editor = models.ForeignKey(User,on_delete=models.CASCADE)
 
     def __str__(self):
