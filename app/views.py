@@ -1,6 +1,9 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render,redirect
 from .models import *
+from .forms import *
+from django.contrib.auth.forms import UserCreationForm
+# from .forms import NewProjectForm, NewsLetterForm
 
 @login_required(login_url='/accounts/login/')
 
@@ -24,3 +27,31 @@ def signup(request):
 #     else:
 #         message = "You haven't searched for any term"
 #         return render(request, 'all-templates/search.html',{"message":message})
+def profile(request):
+    if request.method == 'POST':
+        form = UploadForm(request.POST,request.FILES)
+
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+    else:
+        form =UploadForm()
+
+        profile = Profile.objects.all()
+        all_profile = Profile.objects.all()
+    return render(request,'profile.html', locals())
+
+#
+# def update_index(request):
+#     # all_profile = Profile.objects.all()
+#     profile = Profile.objects.get(user_id = request.user)
+#     if request.method == 'POST':
+#         form = UploadForm(request.POST,request.FILES)
+#
+#         if form.is_valid():
+#             form.save()
+#             return redirect('profile')
+#     else:
+#         form  = ProfileForm()
+#
+#     return render(request,'update.html', locals())
