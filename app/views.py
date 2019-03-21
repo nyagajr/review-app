@@ -9,7 +9,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 def welcome(request):
-    new = project.objects.all()
+    new = Project.objects.all()
     return render(request, 'welcome.html',locals())
 
 def signup(request):
@@ -21,14 +21,14 @@ def search_results(request):
 
     if 'article' in request.GET and request.GET["article"]:
         search_term = request.GET.get("article")
-        searched_articles = Article.search_by_title(search_term)
+        searched_articles = Project.search_by_title(search_term)
         message = f"{search_term}"
 
-        return render(request, 'all-templates/search.html',{"message":message,"articles": searched_articles})
+        return render(request, 'search.html',{"message":message,"searched_articles": searched_articles})
 
     else:
-        message = "You haven't searched for any term"
-        return render(request, 'all-templates/search.html',{"message":message})
+        message = "please enter a name"
+        return render(request, 'search.html',{"message":message})
 
 # the profile
 def profile(request):
